@@ -13,7 +13,9 @@ You should have PHP 5.4+ and cURL 7.19+.
 
 Upload `Api.php` and `Error.php` into a directory of your choice and then require `Api.php` on the page you wish to use the API wrapper.
 
-```
+```php
+<?php
+
 require_once 'taleo/Api.php';
 ```
 
@@ -30,7 +32,9 @@ You will need the following information from Taleo:
 
 To pass in your parameters during instantiation:
 
-```
+```php
+<?php
+
 $Taleo = new RyanSechrest\Taleo\Api(
 	'COMPANYCODE',
 	'username',
@@ -43,7 +47,9 @@ $Taleo = new RyanSechrest\Taleo\Api(
 
 To set your parameters individually:
 
-```
+```php
+<?php
+
 $Taleo = new Taleo\Api();
 $Taleo->set_company_code('COMPANY');
 $Taleo->set_username('username');
@@ -57,13 +63,17 @@ $Taleo->set_service_url('https://tbe.taleo.net/MANAGER/dispatcher/api/v1/service
 
 To login to Taleo:
 
-```
+```php
+<?php
+
 $Taleo->login();
 ```
 
 To logout of Taleo:
 
-```
+```php
+<?php
+
 $Taleo->logout();
 ```
 
@@ -75,19 +85,25 @@ If you need to make multiple requests, but are unable to pass the object around,
 
 To get your authentication token:
 
-```
+```php
+<?php
+
 $auth_token = $Taleo->get_auth_token();
 ```
 
 To set your authentication token:
 
-```
+```php
+<?php
+
 $Taleo->set_auth_token($auth_token);
 ```
 
 You can also fetch a new authentication token or release an old one:
 
-```
+```php
+<?php
+
 $auth_token = $Taleo->fetch_auth_token();
 $Taleo->release_auth_token($auth_token);
 ```
@@ -96,7 +112,9 @@ $Taleo->release_auth_token($auth_token);
 
 This is automatically obtained and managed for you, but if you need to get or set your end point manually, you can do so:
 
-```
+```php
+<?php
+
 $host_url = $Taleo->get_host_url();
 $Taleo->set_host_url($host_url);
 ```
@@ -107,7 +125,9 @@ $Taleo->set_host_url($host_url);
 
 If you want to see what is being returned, you can pass a variable through the `debug` method, which will print out its contents:
 
-```
+```php
+<?php
+
 $Taleo->debug($some_var);
 ```
 
@@ -115,7 +135,9 @@ $Taleo->debug($some_var);
 
 If there are errors in a response, you can retrieve them:
 
-```
+```php
+<?php
+
 $errors = $Taleo->get_errors();
 ```
 
@@ -155,7 +177,9 @@ Array
 
 The following methods can be used to retrieve the corresponding `Error` values:
 
-```
+```php
+<?php
+
 foreach($errors as $Error) {
     echo $Error->get_code();
     echo $Error->get_detail();
@@ -177,7 +201,9 @@ Gives you an array of all the entities in Taleo, including their meta data and p
 
 #### Request
 
-```
+```php
+<?php
+
 $result = $Taleo->get_entities();
 ```
 
@@ -203,7 +229,9 @@ Gives you the meta data and properties of an entity.
 
 #### Request
 
-```
+```php
+<?php
+
 $result = $Taleo->get_entity('requisition');
 ```
 
@@ -222,7 +250,9 @@ Gives you the entity code from an entity, e.g., if you provided it with 'requisi
 
 #### Request
 
-```
+```php
+<?php
+
 $result = $Taleo->get_entity_code('requisition');
 ```
 
@@ -238,7 +268,9 @@ Gives you an array of custom fields of an entity.
 
 #### Request
 
-```
+```php
+<?php
+
 $result = $Taleo->get_entity_custom_fields('requisition');
 ```
 
@@ -264,7 +296,9 @@ Gives you meta data and properties of a specific field of an entity.
 
 #### Request
 
-```
+```php
+<?php
+
 $result = $Taleo->get_entity_field('requisition', 'numOpen');
 ```
 
@@ -283,7 +317,9 @@ Gives you all possible values for a picklist field, for example.
 
 #### Request
 
-```
+```php
+<?php
+
 $result = $Taleo->get_entity_field_values('requisition', 'department');
 ```
 
@@ -309,7 +345,9 @@ Gives you both standard and custom fields of an entity.
 
 #### Request
 
-```
+```php
+<?php
+
 $result = $Taleo->get_entity_fields('requisition');
 ```
 
@@ -335,7 +373,9 @@ Gives you the entity label from an entity, e.g., if you provided it with 'requis
 
 #### Request
 
-```
+```php
+<?php
+
 $result = $Taleo->get_entity_label('requisition');
 ```
 
@@ -351,7 +391,9 @@ Gives you an array of built-in fields of an entity.
 
 #### Request
 
-```
+```php
+<?php
+
 $result = $Taleo->get_entity_standard_fields('requisition');
 ```
 
@@ -377,7 +419,9 @@ Gives you the data of a specific record.
 
 #### Request
 
-```
+```php
+<?php
+
 $result = $Taleo->get_record('requisition', 123);
 ```
 
@@ -398,7 +442,9 @@ Gives you either all records (up to the limit) or lets you search and filter for
 
 Get all requisitions from a specific career website.
 
-```
+```php
+<?php
+
 $query = array(
 	'cws' => 1
 );
@@ -436,7 +482,9 @@ When retrieving requisitions, for example, there may be users attached to that r
 
 #### Request
 
-```
+```php
+<?php
+
 $result = $Taleo->get_related_record('requisition', 123, 'candidate');
 ```
 
@@ -461,7 +509,9 @@ When retrieving requisitions, for example, there may be users, candidates, caree
 
 #### Request
 
-```
+```php
+<?php
+
 $related_entity_names = array(
 	'candidate',
 	'user'
@@ -514,7 +564,9 @@ All fields are optional, meaning that if omitted, the API wrapper will try and u
 
 #### Request
 
-```
+```php
+<?php
+
 $request = array(
 	'path' => 'object/requisition/search',
 	'host' => 'https://ch.tbe.taleo.net/CH0/ats/api/v1/',

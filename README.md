@@ -51,7 +51,7 @@ To set your parameters individually:
 <?php
 
 $Taleo = new Taleo\Api();
-$Taleo->set_company_code('COMPANY');
+$Taleo->set_company_code('COMPANYCODE');
 $Taleo->set_username('username');
 $Taleo->set_password('password');
 $Taleo->set_service_url('https://tbe.taleo.net/MANAGER/dispatcher/api/v1/serviceUrl');

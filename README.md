@@ -30,7 +30,7 @@ You will need the following information from Taleo:
 
 ### Easy Method
 
-To pass in your parameters during instantiation:
+Pass in your parameters during instantiation:
 
 ```php
 <?php
@@ -45,7 +45,7 @@ $Taleo = new RyanSechrest\Taleo\Api(
 
 ### Alternate Method
 
-To set your parameters individually:
+Set your parameters individually:
 
 ```php
 <?php
@@ -61,7 +61,7 @@ $Taleo->set_service_url('https://tbe.taleo.net/MANAGER/dispatcher/api/v1/service
 
 ### Easy Method
 
-To login to Taleo:
+Login to Taleo:
 
 ```php
 <?php
@@ -69,7 +69,7 @@ To login to Taleo:
 $Taleo->login();
 ```
 
-To logout of Taleo:
+Logout of Taleo:
 
 ```php
 <?php
@@ -83,7 +83,7 @@ $Taleo->logout();
 
 If you need to make multiple requests, but are unable to pass the object around, you can extract an existing authentication token, save it, and then manually set it again.
 
-To get your authentication token:
+Get your authentication token:
 
 ```php
 <?php
@@ -91,7 +91,7 @@ To get your authentication token:
 $auth_token = $Taleo->get_auth_token();
 ```
 
-To set your authentication token:
+Set your authentication token:
 
 ```php
 <?php

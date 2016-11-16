@@ -900,7 +900,7 @@ class Api
 		if (!isset($request['http_header']['Content-Type'])) {
 			$request['http_header']['Content-Type'] = 'application/json';
 		}
-		if (isset($request['method']) && $request['method'] == 'post') {
+		if (isset($request['method']) && $request['method'] == 'post' && !isset($request['post_fields'])) {
 			$request['post_fields'] = '';
 		}
 		if (!isset($request['return_transfer'])) {

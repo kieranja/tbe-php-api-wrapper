@@ -1041,10 +1041,7 @@ class Api
 						1
 					);
 					if (!empty($request['post_fields'])) {
-						$request['post_fields'] =
-							$this->convert_array_to_query_string(
-								$request['post_fields']
-							);
+						$request['post_fields'] = json_encode($request['post_fields']);
 					}
 					curl_setopt(
 						$resource,
